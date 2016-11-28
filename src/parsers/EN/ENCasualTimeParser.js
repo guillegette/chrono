@@ -7,7 +7,7 @@ var moment = require('moment');
 var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
 
-var PATTERN = /(\W|^)((this)?\s*(morning|afternoon|evening|noon))/i;
+var PATTERN = /(\W|^)((this)?\s*(morning|afternoon|evening|noon|night))/i;
 
 var TIME_MATCH = 4;
 
@@ -34,7 +34,7 @@ exports.Parser = function ENCasualTimeParser(){
 
             result.start.imply('hour', opt['afternoon'] ? opt['afternoon'] : 15);
 
-        } else if (match[TIME_MATCH] == "evening") {
+        } else if (match[TIME_MATCH] == "evening" || match[TIME_MATCH] == "night") {
 
             result.start.imply('hour', opt['evening'] ? opt['evening'] : 18);
 
