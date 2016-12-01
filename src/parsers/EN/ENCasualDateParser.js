@@ -31,7 +31,7 @@ exports.Parser = function ENCasualDateParser(){
 
         if(lowerText == 'tonight'){
             // Normally means this coming midnight
-            result.start.imply('hour', 22);
+            result.start.imply('hour', 19);
             result.start.imply('meridiem', 1);
 
         } else if (/^tomorrow|^tmr/.test(lowerText)) {
